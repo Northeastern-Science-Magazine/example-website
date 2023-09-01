@@ -1,4 +1,4 @@
-import UserAccessor from "./db_accessor/user.accessor.js";
+import UserAccessor from "../db_accessor/user.accessor.js";
 
 export default class UserController {
     static async getAllUsers(req, res) {
