@@ -6,4 +6,8 @@ export default class UserController {
         console.log(users);
         res.render("index", { users: users } );
     }
+
+    static async followUser(req, res) {
+        res.json(req.body);
+    }
 }
