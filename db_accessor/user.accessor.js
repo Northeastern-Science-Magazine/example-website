@@ -14,4 +14,14 @@ export default class UserAccessor {
             throw e;
         }
     }
+
+    static async getUser(username) {
+        try {
+            await Connection.open("users");
+            const user = await User.findOne({ username: username });
+            return user;
+        } catch (e) {
+            throw e;
+        }
+    }
 }
