@@ -16,6 +16,14 @@ router.route("/css/index.css").get((req, res) => {
     res.sendFile(path.resolve() + "/css/index.css");
 });
 
+router.route("/css/login_page.css").get((req, res) => {
+    res.sendFile(path.resolve() + "/css/login_page.css");
+});
+
+router.route("/css/sign_up.css").get((req, res) => {
+    res.sendFile(path.resolve() + "/css/sign_up.css");
+});
+
 router.route("/follow").post(authorize, UserController.followUser, errorHandler);
 
 router.route("/profile").get(authorize, UserController.getProfile, errorHandler);
@@ -23,5 +31,11 @@ router.route("/profile").get(authorize, UserController.getProfile, errorHandler)
 router.route("/login-page")
 .get(UserController.getLoginPage)
 .post(UserController.postLogin, errorHandler);
+
+router.route("/sign-up")
+.get(UserController.getSignUpPage)
+.post(UserController.postSignUp, errorHandler);
+
+router.route("/logout").get(UserController.getLogout);
 
 export default router;

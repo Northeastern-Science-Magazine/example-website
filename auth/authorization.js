@@ -6,6 +6,7 @@ const authorize = (req, res, next) => {
     if(req.cookies.token) {
         const payload = jwt.verify(req.cookies.token, process.env.TOKEN_KEY);
         if(payload) {
+            req.user = payload;
             next();
         } else {
             //Forbidden - tampered token
