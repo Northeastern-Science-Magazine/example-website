@@ -10,7 +10,15 @@ export default class UserController {
 
     static async followUser(req, res, next) {
         if(!req.error) {
-            res.json(req.body);
+            const toFollow = req.body.follow;
+            const username = req.user.username;
+            const following = req.user.following;
+            
+            if(!following.some((follower) => {follower === toFollow}) && toFollow != username) {
+                await UserAccessor.addFollower(username, toFollow);
+            }
+
+            res.redirect('/');
         } else {
             return next();
         }

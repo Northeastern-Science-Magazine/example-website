@@ -16,12 +16,8 @@ router.route("/css/index.css").get((req, res) => {
     res.sendFile(path.resolve() + "/css/index.css");
 });
 
-router.route("/css/login_page.css").get((req, res) => {
-    res.sendFile(path.resolve() + "/css/login_page.css");
-});
-
-router.route("/css/sign_up.css").get((req, res) => {
-    res.sendFile(path.resolve() + "/css/sign_up.css");
+router.route("/css/style.css").get((req, res) => {
+    res.sendFile(path.resolve() + "/css/style.css");
 });
 
 router.route("/follow").post(authorize, UserController.followUser, errorHandler);
